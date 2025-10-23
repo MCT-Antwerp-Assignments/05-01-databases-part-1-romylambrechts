@@ -1,3 +1,4 @@
+/* 
 Alle met een standaard kost lager dan 10 moeten bij discontinued een true waarde krijgen
 --> UPDATE products SET discontinued = true WHERE standard_cost < 10 ;
 --> controle: SELECT *  FROM products WHERE standard_cost < 10;
@@ -37,3 +38,4 @@ Alle customers die in de state WA of CA wonen moeten worden aangepast zodat de s
 Bij shippers staat bedrijf A nu op naam van: Kevin Van Oevelen
 --> UPDATE shippers SET first_name = 'Kevin', last_name= 'Van Oevelen' WHERE company = 'Shipping Company A';
 --> SELECT * FROM shippers WHERE first_name = 'Kevin' AND last_name= 'Van Oevelen' AND company = 'Shipping Company A';
+*/
