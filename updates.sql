@@ -4,7 +4,7 @@ Alle met een standaard kost lager dan 10 moeten bij discontinued een true waarde
 --> controle: SELECT *  FROM products WHERE standard_cost < 10;
 
 Alle producten met een C in hun code moeten als minimum herbestelhoeveelheid + 5 bij het huidige aantal krijgen
---> UPDATE products SET minimum_reorder_quantity = minimum_reorder_quantity + 5 WHERE product_code LIKE '%C%';
+--> UPDATE products SET reorder_level = reorder_level + 5 WHERE product_code LIKE '%C%';
 --> SELECT * FROM products WHERE product_code LIKE '%C%';
 
 Jan Kotas & Andrew Cencini zijn van bedrijf veranderd en werken nu voor Google pas dit aan voor de employees
@@ -20,12 +20,12 @@ De stad Boise is van naam veranderd en heet nu Boston pas dit aan voor de orders
 --> SELECT * FROM orders WHERE ship_city = 'Boston';
 
 Voor elk order moet de taxes exact 21% zijn van de shipping fee. Uiteraard moeten we ingeven dat we 21% berekenen in de tax_rate kolom
---> UPDATE orders SET tax_rate = 0.21, taxes = shipping_fee * 0.21;
+--> UPDATE orders SET tax_rate = 21, taxes = shipping_fee * 0.21;
 --> SELECT * FROM orders WHERE tax_rate = 0.21;
 
 Voer het thuis telefoonnummer: 123-456-789 toe voor Sato Naoki bij de suppliers
---> UPDATE suppliers SET home_phone = '123-456-789' WHERE first_name = 'Sato' AND last_name = 'Naoki';
---> SELECT * FROM suppliers WHERE home_phone = '123-456-789' AND first_name = 'Sato' AND last_name = 'Naoki';
+--> UPDATE suppliers SET home_phone = '123-456-789' WHERE first_name = 'Noaki' AND last_name = 'Sato';
+--> SELECT * FROM suppliers WHERE home_phone = '123-456-789' AND first_name = 'Noaki' AND last_name = 'Sato';
 
 Voeg voor elke customer een web pagina toe met volgende url: https://achternaam-northwind.com
 --> UPDATE customers SET web_page = CONCAT ('https://', last_name, '-northwind.com');

@@ -1,4 +1,6 @@
 /*
+Voor je aan de opdracht begint: SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+
 Alle producten die als eenheid ergens jars bevatten mogen worden verwijderd
 --> DELETE FROM products WHERE quantity_per_unit LIKE '%jars%';
 

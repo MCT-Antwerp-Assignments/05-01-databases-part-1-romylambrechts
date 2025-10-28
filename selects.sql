@@ -15,7 +15,7 @@ Alle customers gesorteerd op achternaam oplopend
 --> SELECT * FROM customers ORDER BY last_name;
 
 De volledige naam van alle customer in volgend formaat: Voornaam_Achternaam. De titel van de kolom moet full_name zijn
---> ELECT concat (first_name, ' ', last_name) AS 'full_name' FROM customers;
+--> SELECT concat (first_name, ' ', last_name) AS 'full_name' FROM customers;
 
 Alle producten van de categorie Beverages
 --> SELECT * FROM products WHERE category = 'Beverages';
@@ -27,7 +27,8 @@ Alle producten waar de lijst prijs lager is dan 20 euro of 20 euro is
 --> SELECT * FROM products WHERE list_price <= 20;
 
 De prijs van alle producten als er 70% korting zou zijn op de standaard kost
---> SELECT *, (0.70 * standard_cost) AS 'discount' FROM products;
+--> SELECT *, (0.70 * standard_cost) AS 'discount' FROM products; (FOUT)
+--> SELECT product_name, standard_cost * 0.3 AS dicounted_price FROM products;
 
 Alle producten die een T in de code hebben moeten worden geselecteerd
 --> SELECT * FROM products WHERE product_code LIKE '%T%';
@@ -36,10 +37,10 @@ Alle producten met een S in de code moeten een tag krijgen: smart andere product
 --> SELECT *, CASE WHEN product_code LIKE '%S%' then 'smart' ELSE 'dumb' END AS tag FROM products;
 
 Alle producten waar de de herbestel hoeveelheid geen even getal is
---> SELECT * FROM products WHERE (minimum_reorder_quantity%2) != 0;
+--> SELECT * FROM products WHERE (reorder_level % 2) != 0;
 
 Alle producten waar de herbestel hoeveelheid geen veelvoud is van 5
---> SELECT * FROM products WHERE (minimum_reorder_quantity%5) != 0;
+--> SELECT * FROM products WHERE (reorder_level%5) != 0;
 
 Alle orders die niet betaald zijn (Een order is niet betaald als het gee paid_date heeft)
 --> SELECT * FROM orders WHERE paid_date IS NULL;
